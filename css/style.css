@@ -2928,7 +2928,7 @@ h6 {
     font-family: "Roboto", sans-serif;
     color: #777777;
     margin-bottom: 15px; }
-  .news_widget .input-group input {
+  .news_widget .input-group input{
     height: 40px;
     background: transparent;
     border-radius: 0px;
@@ -2957,6 +2957,45 @@ h6 {
       font-weight: normal;
       color: #cccccc; }
     .news_widget .input-group input::-webkit-input-placeholder {
+      font-size: 14px;
+      font-family: "Roboto", sans-serif;
+      font-weight: normal;
+      color: #cccccc; }
+  
+  .input-group span{
+	  color: red;
+	  padding-left:10px;
+	  font-size:14px;
+  }
+	.news_widget .input-group textarea{
+    height: 100%;
+    background: transparent;
+    border-radius: 0px;
+    width: 80%;
+    border: none;
+    padding: 10px 15px;
+    border: 1px solid #1e233b;
+    font-size: 14px;
+    font-family: "Roboto", sans-serif;
+    color: #cccccc;
+    outline: none;
+    box-shadow: none; }
+    .news_widget .input-group textarea.placeholder {
+      font-size: 14px;
+      font-family: "Roboto", sans-serif;
+      font-weight: normal;
+      color: #cccccc; }
+    .news_widget .input-group textarea:-moz-placeholder {
+      font-size: 14px;
+      font-family: "Roboto", sans-serif;
+      font-weight: normal;
+      color: #cccccc; }
+    .news_widget .input-group textarea::-moz-placeholder {
+      font-size: 14px;
+      font-family: "Roboto", sans-serif;
+      font-weight: normal;
+      color: #cccccc; }
+    .news_widget .input-group textarea::-webkit-input-placeholder {
       font-size: 14px;
       font-family: "Roboto", sans-serif;
       font-weight: normal;

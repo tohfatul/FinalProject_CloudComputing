@@ -518,32 +518,85 @@
         <footer class="footer_area p_120">
         	<div class="container">
         		<div class="row footer_inner">
-        			<div class="col-lg-5 col-sm-6">
-        				<aside class="f_widget ab_widget">
-        					<div class="f_title">
-        						<h3>Contact Me:</h3>
-        					</div>
-        					<p>email: tohfatul.iota@gmail.com, mobile: +14704359326</p>
-        					<p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | Tohfatul Islam <i class="fa fa-heart-o" aria-hidden="true"></i>
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
-        				</aside>
-        			</div>
-        			<div class="col-lg-5 col-sm-6">
+        			
+        			<div class="col-lg-8 col-sm-8">
         				<aside class="f_widget news_widget">
         					<div class="f_title">
-        						<h3>Newsletter</h3>
+        						<h3>Write to me</h3>
         					</div>
-        					<p>Stay updated with my latest trends</p>
         					<div id="mc_embed_signup">
                                 <form target="_blank" action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01" method="get" class="subscribe_form relative">
-                                	<div class="input-group d-flex flex-row">
-                                        <input name="EMAIL" placeholder="Enter email address" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email Address '" required="" type="email">
-                                        <button class="btn sub-btn"><span class="lnr lnr-arrow-right"></span></button>		
+                                	<div class="input-group d-flex flex-row">								
+                                        <input 
+										id="yourname"
+										name="yourname" 
+										placeholder="Your name *" 
+										onfocus="this.placeholder = ''" 
+										onblur="this.placeholder = 'Your name here *'" 
+										onkeyup="validateName()"
+										required="" 
+										type="text">
+                                        <span id="name_error"></span>
+                                    </div>	
+									<p>&nbsp;</p>
+									<div class="input-group d-flex flex-row">
+                                        <input 
+										id="email"
+										name="EMAIL" 
+										placeholder="Your email address *" 
+										onfocus="this.placeholder = ''" 
+										onblur="this.placeholder = 'Your email address *'" 
+										onkeyup="validateEmail()"
+										required="" type="email">
+                                       	<span id="email_error"></span>
                                     </div>				
-                                    <div class="mt-10 info"></div>
+									<p>&nbsp;</p>
+									
+									<div class="input-group d-flex flex-row">
+                                        <input 
+										i="phone"
+										name="phone" 
+										placeholder="Your phone number" 
+										onfocus="this.placeholder = ''" 
+										onblur="this.placeholder = 'Your phone number'" 
+										required="" 
+										type="text">
+                                       	
+                                    </div>				
+									<p>&nbsp;</p>
+									
+									<div class="input-group d-flex flex-row">
+                                        <input 
+										id="subject"
+										name="subject" 
+										placeholder="Your subject *" 
+										onfocus="this.placeholder = ''" 
+										onkeyup="validateSubject()"
+										onblur="this.placeholder = 'Your subject *'" 
+										required="" 
+										type="text">
+                                       	<span id="subject_error"></span>
+                                    </div>				
+									<p>&nbsp;</p>
+									<div class="input-group d-flex flex-row">
+                                        <textarea  
+										id="message"
+										name="message" placeholder="Your message *" 
+										onfocus="this.placeholder = ''" onblur="this.placeholder = 'Your message *'" 
+										onkeyup="validateMessage()"
+										rows="8"
+										required="" type="text"></textarea>
+                                       	<span id="message_error"></span>
+                                    </div>				
+									<p>&nbsp;</p>
+									<button class="btn btn-info" onclick="return validateForm()"> Send <span class="lnr lnr-arrow-right"></span></button>
+									<div class="input-group">
+										<span id="submit_error"></span>
+									</div>
+									
                                 </form>
                             </div>
+							
         				</aside>
         			</div>
         			<div class="col-lg-2">
@@ -585,5 +638,89 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
         <script src="vendors/counter-up/jquery.counterup.min.js"></script>
         <script src="js/mail-script.js"></script>
         <script src="js/theme.js"></script>
+		
+		<script>
+			var yournameError = document.getElementById('name_error');
+			var emailError = document.getElementById('email_error');
+			var subjectError = document.getElementById('subject_error');
+			var messageError = document.getElementById('message_error');
+			var submitError = document.getElementById('submit_error');
+			
+			function validateName(){
+				var yourname = document.getElementById('yourname').value;
+				
+				if(yourname.length == 0){
+					yournameError.innerHTML = 'Name required';
+					return false;
+				}else{
+					yournameError.innerHTML = '';
+				}
+				
+				
+				
+				return true;
+			}
+			
+			function validateEmail(){
+				var email = document.getElementById('email').value;
+				
+				if(email.length == 0){
+					emailError.innerHTML = 'Email required';
+					return false;
+				}else{
+					emailError.innerHTML = '';
+				}
+				
+				if (!email.match(/^[A-Za-z\._\-[0-9]*[@][A-Za-z]*[\.][a-z]{2,4}$/)){
+					emailError.innerHTML = 'Invalid email';
+					return false;
+				}
+				
+				
+				return true;
+			}
+			
+			function validateSubject(){
+				var subject = document.getElementById('subject').value;
+				
+				if(subject.length == 0){
+					subjectError.innerHTML = 'Subject required';
+					return false;
+				}else{
+					subjectError.innerHTML = '';
+				}
+				
+				
+				return true;
+			}
+			
+			function validateMessage(){
+				var message = document.getElementById('message').value;
+				
+				if(message.length == 0){
+					messageError.innerHTML = 'Message required';
+					return false;
+				}else{
+					messageError.innerHTML = '';
+				}
+				
+				
+				
+				return true;
+			}
+			
+			function validateForm(){
+			
+			
+				if(!validateName() || !validateEmail() || !validateSubject() || !validateMessage()){
+				submitError.style.display='block';
+					submitError.innerHTML = 'Please fix error! All (*) fields are required.';
+					setTimeout(function(){submitError.style.display='none';},3000);
+					return false;
+				}
+				
+				
+			}
+		</script>
     </body>
 </html>
