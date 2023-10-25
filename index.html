@@ -554,7 +554,7 @@
 									
 									<div class="input-group d-flex flex-row">
                                         <input 
-										i="phone"
+										id="phone"
 										name="phone" 
 										placeholder="Your phone number" 
 										onfocus="this.placeholder = ''" 
@@ -719,7 +719,30 @@
 					return false;
 				}
 				
+				let yourname = document.getElementById('yourname').value;
+				let email = document.getElementById('email').value;
+				let phone = document.getElementById('phone').value;
+				let subject = document.getElementById('subject').value;
+				let message = document.getElementById('message').value;
 				
+				var xhr = new XMLHttpRequest();
+				var url = "https://0ncrroi579.execute-api.us-east-1.amazonaws.com/V1/sendemail";
+				xhr.open("POST", url, true);
+				xhr.setRequestHeader("Content-Type", "application/json");
+				xhr.onreadystatechange = function () {
+					if (xhr.readyState === 4 && xhr.status === 200) {
+						var json = JSON.parse(xhr.responseText);
+						console.log(json);
+					}
+				};
+				var data = JSON.stringify({
+					"webSenderName": yourname,
+					"subjectt": subject,
+					"webSenderEmail": email,
+					"webSenderPhone": phone,
+					"webSenderMessage": message});
+				
+				xhr.send(data);
 			}
 		</script>
     </body>
