@@ -469,7 +469,7 @@
 										&amp; other features.
 									</p>								
 									
-									<h4><a href="https://youtu.be/Wln2hZe55jo" target="_blank">Class Manager (Mobile App)</a></h4>
+									<h4><a href="#" target="_blank">Class Manager (Mobile App)</a></h4>
 									
 								</div>
 							</div>
@@ -500,20 +500,101 @@
 					<br>
 					<br>
 
-					<div class="text-center">
-							<h5>Some of my other projects:</h5>
-						<p><a href="https://youtu.be/bDq18hqsyz0" target="_blank">Sample Front-end &amp;ASP.NET Core REST API </a> <br><span class="small">(Technology: ASP.net MVC Core, Web API. EF Core, AngularJS, SQL Server)</span></p>											
-						<p><a href="http://marganetone.net/" target="_blank">Website for Marganet One</a></p>
-						<p><a href="http://biswastec.com/" target="_blank">Website for BiswasTech</a></p>
-						<p><a href="https://youtu.be/9YVGvxEUdZ4?si=3bHR7wfQF03izrNZ" target="_blank">Resume Builder Mobile App</a></p>
-						<p><a href="https://drive.google.com/open?id=1mpWMTAWspR2OeYb10xmoBkICe3zt8Ch8" target="_blank">Photos on Some of projects I was involved</a></p>
-
-					</div>
+					
         		</div>
 			</div>
         </section>
         <!--================End Testimonials Area =================-->
         
+		 <!--================Blog Area =================-->
+        <section class="feature_area p_120">
+        	<div class="container">
+        		<div class="main_title">
+        			<h2>My Blogs</h2>
+        			
+        		</div>
+        		
+				
+				
+				<div class="feature_inner row">
+				
+					<div class="col-lg-12 col-md-12">
+        				<div class="feature_item">
+							
+							<p>Publish date: October 27, 2023</p>
+							
+							
+        					<h4>System Design: Scaling</h4>
+							<p>How to support our system to zero to millions of users? I will discuss it here step by step. 
+							It’s common that we start something simple and change when demand grows. In Fig: 1, our system is simple initially where 
+							users are connected with the server. Here the web server, database and cache – everything running under one server.</p>
+							
+							<img src="img/fig1.png" class="rounded mx-auto d-block" alt="oracle logo" height= "300px"/>
+							<p class="text-center">Fig: 1</p>
+							<br/>
+							
+							<p>
+								So, what is the problem with the design? As the web application will be more popular, 
+								the server will not be able to support more user traffic. So, the ideal thing to do in 
+								this situation is separating the data tier from the web tier. Here is what the design looks like (Fig: 2).
+							</p>
+							
+							<img src="img/fig2.png" class="rounded mx-auto d-block" alt="oracle logo" height= "300px"/>
+							<p class="text-center">Fig: 2</p>
+							<br/>
+							<p>
+								Here, the web tier will take care of all the web traffic and the database tier will take care of all the data growth. 
+								The advantage is that we can now scale our web tier and data tier independently. 
+								Meaning, if lot of users come, we can increase the capacity of our web tier. 
+								And, if user is not that high but produces a lot of then we can increase the capacity of data tier without 
+								increasing the capacity of web tier. 
+							</p>
+							<p>&nbsp;</p>
+							<p>
+							Now the question is, how to increase the capacity? There are to ways of doing that- one is <strong>Vertical Scaling</strong> and the other is <strong>Horizontal Scaling</strong>.
+							</p>
+							
+							<br/>
+							<p>
+							Let’s talk about vertical scaling. It means increasing the capacity of the existing server. 
+							Meaning Adding more RAMs, Hard Disks or more CPUs. The architecture will be the same but with more added capacity. 
+							<br/><br/>What are the pros and cons of this? </br>
+							<br/>
+							<strong>Pros:</strong><br/>
+							Simplicity, its relatively simple to add more RAMs and CPUs to an existing system.<br/><br/>
+							<strong>Cons:</strong><br/>
+							Impossible to add infinite memory and CPU to one server.<br/>
+							No failover or redundancy. Meaning, if one server goes down, the entire system goes down.
+
+							</p>
+							<br/>
+							<p>
+							Now let’s discuss Horizontal Scaling. In Horizontal Scaling, we will add more servers into our pool. 
+							Meaning if we have one server, we will add a second server. Likewise, we can add more servers when demand grows. 
+							For this, we will also need a load balancer which will distribute loads across the servers based on their health status (See Fig: 3).
+							
+							</p>
+							<img src="img/fig3.png" class="rounded mx-auto d-block" alt="oracle logo" height= "300px"/>
+							<p class="text-center">Fig: 3</p>
+							<br/>
+							<p>
+							Now, besides balancing loads, the system is also fault tolerant. Meaning, if Server 1 goes down, the application still runs using Server 2. 
+							Also look that we have added two read replica server in the database tier. The purpose of this is that, 
+							they will provide all read operations for the web servers. And the master database will perform all insert/ update operations 
+							for the web servers. It will also keep data sync in replica sets. In addition, if the master database fails, one of the read replica 
+							will become master database to server write operations as well. 
+							</p>
+        				</div>
+        			</div>
+					
+        			
+        			
+        		</div>
+				
+        	</div>
+        </section>
+        <!--================End Feature Area =================-->
+		
         <!--================Footer Area =================-->
         <footer class="footer_area p_120">
         	<div class="container">
@@ -589,7 +670,7 @@
                                        	<span id="message_error"></span>
                                     </div>				
 									<p>&nbsp;</p>
-									<button class="btn btn-info" onclick="return validateForm()"> Send <span class="lnr lnr-arrow-right"></span></button>
+									<button id="btn_submit" class="btn btn-info" onclick="return validateForm()"> Send <span class="lnr lnr-arrow-right"></span></button>
 									<div class="input-group">
 										<span id="submit_error"></span>
 									</div>
@@ -607,7 +688,8 @@
         					<p>Let us be social</p>
         					<ul class="list">
         						<li><a href="https://www.facebook.com/tohfatul"><i class="fa fa-facebook"></i></a></li>
-        						<li><a href="https://twitter.com/TohfatulM"><i class="fa fa-twitter"></i></a></li>  						
+        						<li><a href="https://twitter.com/TohfatulM"><i class="fa fa-twitter"></i></a></li>  
+								<li><a href="https://www.linkedin.com/in/tohfatul-Islam"><i class="fa fa-linkedin"></i></a></li> 								
         					</ul>
         				</aside>
         			</div>
@@ -709,15 +791,19 @@
 				return true;
 			}
 			
+			
 			function validateForm(){
 			
 			
 				if(!validateName() || !validateEmail() || !validateSubject() || !validateMessage()){
 				submitError.style.display='block';
+				submitError.style.color='red';
 					submitError.innerHTML = 'Please fix error! All (*) fields are required.';
 					setTimeout(function(){submitError.style.display='none';},3000);
 					return false;
 				}
+				
+				document.getElementById('btn_submit').disabled = true;
 				
 				let yourname = document.getElementById('yourname').value;
 				let email = document.getElementById('email').value;
@@ -733,6 +819,12 @@
 					if (xhr.readyState === 4 && xhr.status === 200) {
 						var json = JSON.parse(xhr.responseText);
 						console.log(json);
+						
+						submitError.style.display='block';
+						submitError.style.color='green';
+						submitError.innerHTML = 'Message sent successfull!';
+						document.getElementById('btn_submit').disabled = false;
+						setTimeout(function(){submitError.style.display='none';},3000);
 					}
 				};
 				var data = JSON.stringify({
@@ -742,8 +834,32 @@
 					"webSenderPhone": phone,
 					"webSenderMessage": message});
 				
+				
+				
 				xhr.send(data);
+				
+				setTimeout(function(){
+					submitError.style.display='block';
+					submitError.style.color='green';
+					submitError.innerHTML = 'Message sent successfull!';
+					
+					
+					document.getElementById('yourname').value ='';
+					document.getElementById('email').value ='';
+					document.getElementById('phone').value ='';
+					document.getElementById('subject').value ='';
+					document.getElementById('message').value ='';
+					
+				},3000);
+				
+				
+				
+				setTimeout(function(){
+				submitError.style.display='none'; 
+				document.getElementById('btn_submit').disabled = false;},9000);
 			}
+			
+			
 		</script>
     </body>
 </html>

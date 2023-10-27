@@ -6,4 +6,6 @@
  5. More updates on my profile template and some aws backend works (Date: Oct 24, 2023)
  6. Backend services like API gateway, lamda, SES implemented. Added API call to lamda for front-end (Date: Oct 24, 2023). 
  7. S3 hosting, Domain Config, Route 53 config, SSL Certificate, Cloude Front (Date: Oct 26, 2023)
+ 8. Completed my project (Date: Oct 27, 2023)
+ 
  
